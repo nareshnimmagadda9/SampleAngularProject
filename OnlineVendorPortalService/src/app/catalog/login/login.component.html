@@ -1,0 +1,28 @@
+<app-header>
+</app-header>
+<div style="height: 10px;"></div>
+<div class="signin-content container" style="margin-top: 120px;">
+	<mat-card>
+		<mat-card-content>
+			<form [formGroup]="form" (ngSubmit)="Userlogin()" autocomplete="off">
+				<p style="font-size: 20px;">
+					<b> Please login to continue</b>
+				</p>
+				<mat-form-field class="full-width-input">
+					<input matInput type="text" placeholder="User Name" formControlName="userName" required class="form_input">
+					<mat-error *ngIf="isFieldInvalid('userName')">
+						Please enter your user name
+					</mat-error>
+				</mat-form-field>
+				<mat-form-field class="full-width-input">
+					<input matInput type="password" placeholder="Password" formControlName="password" required class="form_input">
+					<mat-error *ngIf="isFieldInvalid('password')">
+						Please enter your password
+					</mat-error>
+				</mat-form-field>
+				<button mat-raised-button class="form_button" type="submit">Login</button>
+			</form>
+		</mat-card-content>
+	</mat-card>
+</div>
+<app-footer></app-footer>

@@ -1,0 +1,51 @@
+<div class="wrapper" *ngIf="isLoggedIn$">
+    <!-- Sidebar Holder -->
+    <nav id="sidebar">
+        <div id="dismiss">
+            <i class="glyphicon glyphicon-arrow-left"></i>
+        </div>
+
+        <div class="sidebar-header">
+            <h3>Vendor Service</h3>
+        </div>
+
+        <ul class="list-unstyled components">
+            <li class="active">
+                <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">Product Services</a>
+                <ul class="collapse list-unstyled" id="homeSubmenu">
+                    <li *ngIf="isLoggedInUserType"><a routerLink="/Creation">Product Creation</a></li>
+                    <li><a routerLink="/Search">Product Search</a></li>
+                    <li><a routerLink="/Status">Product Status</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="javascript:void(0);">Supplier Services</a>
+            </li>
+            <li>
+                <a href="#PurchaseSubmenu" data-toggle="collapse" aria-expanded="false">Purchase Order</a>
+                <ul class="collapse list-unstyled" id="PurchaseSubmenu">
+                    <li><a href="javascript:void(0);">Track Purchase Order</a></li>
+                    <li><a href="javascript:void(0);">Create Purchase Order</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Page Content Holder -->
+    <div id="content">
+        <nav class="">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn">
+                        <span>☰</span>
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </div>
+</div>
+
+
+
+<div class="overlay"></div>
+      

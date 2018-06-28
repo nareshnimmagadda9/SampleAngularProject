@@ -1,0 +1,34 @@
+[
+    {
+        "id": 1,
+        "first_name": "rakesh",
+        "last_name": "R",
+        "email": "rakesh.r@piersoft.com",
+        "user_type": "A",
+        "user_name":"rakesh"
+    },
+    {
+        "id": 2,
+        "first_name": "ravi",
+        "last_name": "P",
+        "email": "ravi.p@piersoft.com",
+        "user_type": "C",
+        "user_name":"ravi"
+    },
+    {
+        "id": 3,
+        "first_name": "ram",
+        "last_name": "A",
+        "email": "ram.a@piersoft.com",
+        "user_type": "C",
+        "user_name":"ram"
+    },
+    {
+        "id": 4,
+        "first_name": "naresh",
+        "last_name": "A",
+        "email": "naresh.a@piersoft.com",
+        "user_type": "C",
+        "user_name":"naresh"
+    }
+]
