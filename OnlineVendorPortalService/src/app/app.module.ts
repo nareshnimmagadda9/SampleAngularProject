@@ -4,6 +4,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
+import { HttpModule, JsonpModule } from '@angular/http';  
 
 import {
   MatButtonModule,
@@ -23,6 +24,7 @@ import {
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AuthService } from './auth/auth.service';
+import { VendorService } from './auth/vendor.service';
 import { CatalogModule } from '../app/catalog/catalog.module';
 import { ShareModule } from '../app/share/share.module';
 
@@ -50,9 +52,11 @@ import { ShareModule } from '../app/share/share.module';
     HttpClientModule,
     RouterModule,
     CatalogModule,
-    ShareModule
+    ShareModule,
+    HttpModule,  
+    JsonpModule
   ],
-  providers: [AuthService],
+  providers: [AuthService,VendorService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

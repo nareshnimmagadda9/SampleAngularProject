@@ -31,7 +31,6 @@ export class AuthService {
     this.myRoute.navigate(["login"]);
   }
   getuserDetails(): userinfo[] {
-    debugger;
     this.httpService.get<userinfo[]>('http://localhost:4231/assets/sampledata.json').subscribe(
       data => {
         console.log(data);
