@@ -8,27 +8,29 @@
         <div class="sidebar-header">
             <h3>Vendor Service</h3>
         </div>
-
-        <ul class="list-unstyled components">
-            <li class="active">
-                <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">Product Services</a>
-                <ul class="collapse list-unstyled" id="homeSubmenu">
-                    <li *ngIf="isLoggedInUserType"><a routerLink="/Creation">Product Creation</a></li>
-                    <li><a routerLink="/Search">Product Search</a></li>
-                    <li><a routerLink="/Status">Product Status</a></li>
-                </ul>
-            </li>
-            <li>
-                <a href="javascript:void(0);">Supplier Services</a>
-            </li>
-            <li>
-                <a href="#PurchaseSubmenu" data-toggle="collapse" aria-expanded="false">Purchase Order</a>
-                <ul class="collapse list-unstyled" id="PurchaseSubmenu">
-                    <li><a href="javascript:void(0);">Track Purchase Order</a></li>
-                    <li><a href="javascript:void(0);">Create Purchase Order</a></li>
-                </ul>
-            </li>
+        <ul class="list-unstyled components" id="slideBarData">
+         
         </ul>
+        <!-- <ul class="list-unstyled components">
+              <li class="active">
+                  <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">Product Services</a>
+                  <ul class="collapse list-unstyled" id="homeSubmenu">
+                      <li><a routerLink="/Creation">Product Creation</a></li>
+                      <li><a routerLink="/Search">Product Search</a></li>
+                      <li><a routerLink="/Status">Product Status</a></li>
+                  </ul>
+              </li>
+              <li>
+                  <a href="javascript:void(0);">Supplier Services</a>
+              </li>
+              <li>
+                  <a href="#PurchaseSubmenu" data-toggle="collapse" aria-expanded="false">Purchase Order</a>
+                  <ul class="collapse list-unstyled" id="PurchaseSubmenu">
+                      <li><a href="javascript:void(0);">Track Purchase Order</a></li>
+                      <li><a href="javascript:void(0);">Create Purchase Order</a></li>
+                  </ul>
+              </li>
+          </ul> -->
     </nav>
 
     <!-- Page Content Holder -->
@@ -48,4 +50,3 @@
 
 
 <div class="overlay"></div>
-      

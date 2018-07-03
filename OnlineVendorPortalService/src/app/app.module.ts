@@ -4,7 +4,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
-import { HttpModule, JsonpModule } from '@angular/http';  
+import { HttpModule } from '@angular/http';  
+import { ToastrModule } from 'ngx-toastr';
 
 import {
   MatButtonModule,
@@ -54,7 +55,7 @@ import { ShareModule } from '../app/share/share.module';
     CatalogModule,
     ShareModule,
     HttpModule,  
-    JsonpModule
+    ToastrModule.forRoot()
   ],
   providers: [AuthService,VendorService],
   bootstrap: [AppComponent]

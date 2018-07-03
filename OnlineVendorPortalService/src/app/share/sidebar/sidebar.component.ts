@@ -3,6 +3,9 @@ import { AuthService } from '~/../src/app/auth/auth.service';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
 import * as $ from 'jquery';
+import { VendorService } from '~/../src/app/auth/vendor.service'
+import { userAccessArray } from '~/../src/app/model/useraccess';
+import { SafeHtml } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-sidebar',
@@ -12,19 +15,39 @@ import * as $ from 'jquery';
 export class SidebarComponent implements OnInit, AfterViewInit {
 
   isLoggedIn$: boolean;
-  isLoggedInUserType: boolean;
+  AccessData: userAccessArray[];
+  htmlData:SafeHtml;
   constructor(private authService: AuthService,
-    private router: Router) { }
+    private vendorService: VendorService
+  ) { }
 
   ngOnInit() {
     this.isLoggedIn$ = this.authService.isLoggedIn;
-    if (localStorage.getItem("LoggedInUserType") === "A")
-      this.isLoggedInUserType = true;
-    else
-      this.isLoggedInUserType = false;
-
+    this.getUserAccessGroupandSubGroups();
   }
- 
+  async getUserAccessGroupandSubGroups() {
+    this.AccessData = await this.vendorService.getAllUSerAccessGroupandSubGroups("1");
+    var groups = {};
+    var htmlULLI = "", childhtmlLI = "";
+    for (var i = 0; i < this.AccessData.length; i++) {
+      var groupName = this.AccessData[i]["GroupName"];
+      if (!groups[groupName]) {
+        groups[groupName] = [];
+      }
+      groups[groupName].push(this.AccessData[i]["SubGroupName"]);
+    }
+    for (var groupNames in groups) {
+      htmlULLI += "<li _ngcontent-c3>";
+      htmlULLI += "<a _ngcontent-c3 href='#" + groupNames.replace(" ", "") + "' data-toggle='collapse' aria-expanded='false'>" + groupNames + "</a>";
+      htmlULLI += "<ul _ngcontent-c3 class='collapse list-unstyled' id=" + groupNames.replace(" ", "") + ">";
+      childhtmlLI="";
+      for (var i = 0; i < groups[groupNames].length; i++) {
+        childhtmlLI += "<li _ngcontent-c3><a _ngcontent-c3 href='javascript:void(0);'>"+groups[groupNames][i]+"</a></li>";
+      }
+      htmlULLI += childhtmlLI+"</ul></li>";
+    }
+    $("#slideBarData").html(htmlULLI);
+  }
   ngAfterViewInit() {
 
     $('#dismiss, .overlay').on('click', function () {
