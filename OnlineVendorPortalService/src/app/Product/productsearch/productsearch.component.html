@@ -1,0 +1,15 @@
+<div class="container" style="padding :200px;">
+
+    <form>
+        <input type="text" name="search" placeholder="Search..">
+        <div class="dropdown">
+            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Select Category
+            </button>
+            <ul class="dropdown-menu">
+                <li *ngFor="let pCategory of productsearchData">
+                    {{ pCategory.Category }}
+                </li>
+            </ul>
+        </div>
+    </form>
+</div>

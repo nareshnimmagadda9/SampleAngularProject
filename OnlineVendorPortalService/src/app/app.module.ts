@@ -2,32 +2,18 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { RouterModule } from '@angular/router';
+import { RouterModule, Route } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
-import { HttpModule } from '@angular/http';  
+import { HttpModule } from '@angular/http';
 import { ToastrModule } from 'ngx-toastr';
 
-import {
-  MatButtonModule,
-  MatMenuModule,
-  MatToolbarModule,
-  MatIconModule,
-  MatCardModule,
-  MatFormFieldModule,
-  MatInputModule,
-  MatRadioModule,
-  MatSelectModule,
-  MatOptionModule,
-  MatSlideToggleModule,
-  ErrorStateMatcher,
-  ShowOnDirtyErrorStateMatcher
-} from '@angular/material';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AuthService } from './auth/auth.service';
 import { VendorService } from './auth/vendor.service';
 import { CatalogModule } from '../app/catalog/catalog.module';
 import { ShareModule } from '../app/share/share.module';
+import { ProductModule } from '../app/Product/product.module';
 
 @NgModule({
   declarations: [
@@ -36,17 +22,6 @@ import { ShareModule } from '../app/share/share.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    MatButtonModule,
-    MatMenuModule,
-    MatToolbarModule,
-    MatIconModule,
-    MatCardModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatRadioModule,
-    MatSelectModule,
-    MatOptionModule,
-    MatSlideToggleModule,
     FormsModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
@@ -54,10 +29,11 @@ import { ShareModule } from '../app/share/share.module';
     RouterModule,
     CatalogModule,
     ShareModule,
-    HttpModule,  
+    HttpModule,
+    ProductModule,
     ToastrModule.forRoot()
   ],
-  providers: [AuthService,VendorService],
+  providers: [AuthService, VendorService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

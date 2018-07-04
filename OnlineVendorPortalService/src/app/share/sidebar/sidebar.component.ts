@@ -1,11 +1,10 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { AuthService } from '~/../src/app/auth/auth.service';
 import { Observable } from 'rxjs';
-import { Router } from '@angular/router';
+import { Router,RouterLink } from '@angular/router';
 import * as $ from 'jquery';
 import { VendorService } from '~/../src/app/auth/vendor.service'
 import { userAccessArray } from '~/../src/app/model/useraccess';
-import { SafeHtml } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-sidebar',
@@ -16,7 +15,6 @@ export class SidebarComponent implements OnInit, AfterViewInit {
 
   isLoggedIn$: boolean;
   AccessData: userAccessArray[];
-  htmlData:SafeHtml;
   constructor(private authService: AuthService,
     private vendorService: VendorService
   ) { }
@@ -42,7 +40,7 @@ export class SidebarComponent implements OnInit, AfterViewInit {
       htmlULLI += "<ul _ngcontent-c3 class='collapse list-unstyled' id=" + groupNames.replace(" ", "") + ">";
       childhtmlLI="";
       for (var i = 0; i < groups[groupNames].length; i++) {
-        childhtmlLI += "<li _ngcontent-c3><a _ngcontent-c3 href='javascript:void(0);'>"+groups[groupNames][i]+"</a></li>";
+        childhtmlLI += "<li _ngcontent-c3><button class='btn btn-link' _ngcontent-c3 routerLink='/product/"+groups[groupNames][i].replace(" ", "")+"'>"+groups[groupNames][i]+"</button></li>";
       }
       htmlULLI += childhtmlLI+"</ul></li>";
     }
