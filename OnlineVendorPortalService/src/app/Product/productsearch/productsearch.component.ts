@@ -17,7 +17,6 @@ export class ProductsearchComponent implements OnInit {
 
   ngOnInit() {
     this.getproductdetails();
-
   }
   async getproductdetails() {
     this.productsearchData = await this.vendorService.getProductSearchData("", "CV", "product");

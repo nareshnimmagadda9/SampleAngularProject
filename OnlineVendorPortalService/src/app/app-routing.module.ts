@@ -9,6 +9,8 @@ import { ProductsearchComponent } from './Product/productsearch/productsearch.co
 import { ProductcreationComponent } from './Product/productcreation/productcreation.component';
 import { ProductstatusComponent } from './Product/productstatus/productstatus.component';
 import { ProductComponent } from './Product/product.component';
+import { InventoryComponent } from './Inventory/inventory.component';
+import { AddinventoryComponent } from './Inventory/addinventory/addinventory.component';
 
 
 import { AuthGuard } from './auth/auth.guard';
@@ -25,13 +27,23 @@ const routes: Routes = [
     component: LoginComponent,
   },
   {
-    path: 'product',
+    path: 'productservices',
     component: ProductComponent,
+    canActivate: [AuthGuard],
     children:
       [
         { path: 'productsearch', component: ProductsearchComponent },
         { path: 'createproduct', component: ProductcreationComponent },
         { path: 'productstatus', component: ProductstatusComponent }
+      ]
+  },
+  {
+    path: 'inventoryservices',
+    component: InventoryComponent,
+    canActivate: [AuthGuard],
+    children:
+      [
+        { path: 'createinventory', component: AddinventoryComponent },
       ]
   },
   { path: '', component: HomeComponent, },

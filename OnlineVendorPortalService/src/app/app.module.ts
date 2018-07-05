@@ -6,14 +6,20 @@ import { RouterModule, Route } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
 import { ToastrModule } from 'ngx-toastr';
-
-import { AppComponent } from './app.component';
-import { AppRoutingModule } from './app-routing.module';
+// Services
 import { AuthService } from './auth/auth.service';
 import { VendorService } from './auth/vendor.service';
+import { QrCodeReader } from './auth/qr-code-reader.service';
+
+// Components
+import { AppComponent } from './app.component';
+
+// Modules
+import { AppRoutingModule } from './app-routing.module';
 import { CatalogModule } from '../app/catalog/catalog.module';
 import { ShareModule } from '../app/share/share.module';
 import { ProductModule } from '../app/Product/product.module';
+import { InventoryModule } from '../app/Inventory/inventory.module';
 
 @NgModule({
   declarations: [
@@ -31,9 +37,10 @@ import { ProductModule } from '../app/Product/product.module';
     ShareModule,
     HttpModule,
     ProductModule,
+    InventoryModule,
     ToastrModule.forRoot()
   ],
-  providers: [AuthService, VendorService],
+  providers: [AuthService, VendorService, QrCodeReader],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

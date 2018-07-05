@@ -40,8 +40,9 @@ export class SidebarComponent implements OnInit, AfterViewInit {
       htmlULLI += "<ul _ngcontent-c3 class='collapse list-unstyled' id=" + groupNames.replace(" ", "") + ">";
       childhtmlLI = "";
       for (var i = 0; i < groups[groupNames].length; i++) {
+        var groupname=groupNames.replace(" ", "").toLowerCase();
         var subname = groups[groupNames][i].replace(" ", "").toLowerCase();
-        childhtmlLI += "<li _ngcontent-c3><a _ngcontent-c3 href='/product/" + subname + "'>" + groups[groupNames][i] + "</a></li>";
+        childhtmlLI += "<li _ngcontent-c3><a _ngcontent-c3 href='/"+groupname+"/" + subname + "'>" + groups[groupNames][i] + "</a></li>";
       }
       htmlULLI += childhtmlLI + "</ul></li>";
     }
