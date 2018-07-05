@@ -20,8 +20,6 @@ export class AddinventoryComponent implements OnInit {
         this.inventoryID = decodedString;
         console.log('Value is : ' + decodedString)
       });
-      console.log("Hi...");
-      alert(this.inventoryID);
   }
   constructor(private qrReader: QrCodeReader) { }
 
