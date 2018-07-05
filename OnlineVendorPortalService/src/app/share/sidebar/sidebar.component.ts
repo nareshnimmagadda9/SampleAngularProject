@@ -1,7 +1,7 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { AuthService } from '~/../src/app/auth/auth.service';
 import { Observable } from 'rxjs';
-import { Router,RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import * as $ from 'jquery';
 import { VendorService } from '~/../src/app/auth/vendor.service'
 import { userAccessArray } from '~/../src/app/model/useraccess';
@@ -38,11 +38,12 @@ export class SidebarComponent implements OnInit, AfterViewInit {
       htmlULLI += "<li _ngcontent-c3>";
       htmlULLI += "<a _ngcontent-c3 href='#" + groupNames.replace(" ", "") + "' data-toggle='collapse' aria-expanded='false'>" + groupNames + "</a>";
       htmlULLI += "<ul _ngcontent-c3 class='collapse list-unstyled' id=" + groupNames.replace(" ", "") + ">";
-      childhtmlLI="";
+      childhtmlLI = "";
       for (var i = 0; i < groups[groupNames].length; i++) {
-        childhtmlLI += "<li _ngcontent-c3><button class='btn btn-link' _ngcontent-c3 routerLink='/product/"+groups[groupNames][i].replace(" ", "")+"'>"+groups[groupNames][i]+"</button></li>";
+        var subname = groups[groupNames][i].replace(" ", "").toLowerCase();
+        childhtmlLI += "<li _ngcontent-c3><a _ngcontent-c3 href='/product/" + subname + "'>" + groups[groupNames][i] + "</a></li>";
       }
-      htmlULLI += childhtmlLI+"</ul></li>";
+      htmlULLI += childhtmlLI + "</ul></li>";
     }
     $("#slideBarData").html(htmlULLI);
   }

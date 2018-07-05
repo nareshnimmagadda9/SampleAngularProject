@@ -5,10 +5,11 @@ import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from 'src/app/catalog/login/login.component';
 import { DashboardComponent } from './catalog/dashboard/dashboard.component';
 import { HomeComponent } from './catalog/home/home.component';
-import { ProductComponent } from './Product/product.component';
 import { ProductsearchComponent } from './Product/productsearch/productsearch.component';
 import { ProductcreationComponent } from './Product/productcreation/productcreation.component';
 import { ProductstatusComponent } from './Product/productstatus/productstatus.component';
+import { ProductComponent } from './Product/product.component';
+
 
 import { AuthGuard } from './auth/auth.guard';
 
@@ -28,10 +29,9 @@ const routes: Routes = [
     component: ProductComponent,
     children:
       [
-        
-        { path: 'ProductSearch', component: ProductsearchComponent },
-        { path: 'CreateProduct', component: ProductcreationComponent },
-        { path: 'ProductStatus', component: ProductstatusComponent }
+        { path: 'productsearch', component: ProductsearchComponent },
+        { path: 'createproduct', component: ProductcreationComponent },
+        { path: 'productstatus', component: ProductstatusComponent }
       ]
   },
   { path: '', component: HomeComponent, },

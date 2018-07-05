@@ -23,4 +23,7 @@ export class HeaderComponent implements OnInit {
   onLogin(){
     this.router.navigate(['login']);
   }
+  redirect(name){
+    this.router.navigate([name]);
+  }
 }

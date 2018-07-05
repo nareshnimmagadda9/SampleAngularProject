@@ -124,21 +124,7 @@ a, a:hover, a:focus {
     background: #fff;
     cursor: pointer;
 }
-#sidebar ul li button {
-    padding: 10px;
-    font-size: 1.1em;
-    display: block;
-    cursor: pointer;
-    width: 100%;
-    text-align: left;
-    color: white;
-    border:none;
-}
-#sidebar ul li button:hover {
-    color: #7386D5;
-    background: #fff;
-    cursor: pointer;
-}
+
 #sidebar ul li.active > a, a[aria-expanded="true"] {
     color: #fff;
     background: #6d7fcc;

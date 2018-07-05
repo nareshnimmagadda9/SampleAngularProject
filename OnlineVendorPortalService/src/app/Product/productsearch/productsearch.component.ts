@@ -21,6 +21,5 @@ export class ProductsearchComponent implements OnInit {
   }
   async getproductdetails() {
     this.productsearchData = await this.vendorService.getProductSearchData("", "CV", "product");
-    debugger;
   }
 }
