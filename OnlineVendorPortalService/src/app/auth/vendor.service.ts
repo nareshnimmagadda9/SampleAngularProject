@@ -13,7 +13,7 @@ export class VendorService {
   employeeAccessData: userAccessArray[];
   productSearchData:productData[];
   private URL = 'http://localhost:49897/';
-  // private URL = 'http://172.16.2.98:2020/';
+  // private URL = 'http://111.93.23.205:2020/';
   constructor(private http: Http) { }
 
   async getUserDetails(UserName: string, password: string) {
@@ -29,6 +29,7 @@ export class VendorService {
       });
     return this.employeeData;
   }
+
   async getAllUSerAccessGroupandSubGroups(ID: string) {
     const subUrl = this.URL + 'api/vendor/RetrieveUserAccessDetailsByID';
     let params = new URLSearchParams();
@@ -41,6 +42,7 @@ export class VendorService {
       });
     return this.employeeAccessData;
   }
+
   async getProductSearchData(Item: string, Category: string, Description: string) {
     const subUrl = this.URL + 'api/vendor/RetrieveProductSearchData';
     let params = new URLSearchParams();
@@ -48,6 +50,16 @@ export class VendorService {
     params.set('Category', Category);
     params.set('Description', Description);
     await this.http.get(subUrl, { search: params })
+      .map((data: Response) => {
+        return data.json() as productData[];
+      }).toPromise().then(x => {
+        this.productSearchData = x as productData[];
+      });
+    return this.productSearchData;
+  }
+  async getAllDistincitCategory() {
+    const subUrl = this.URL + 'api/vendor/RetriveCategoryData';
+    await this.http.get(subUrl)
       .map((data: Response) => {
         return data.json() as productData[];
       }).toPromise().then(x => {

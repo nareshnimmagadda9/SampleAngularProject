@@ -1,7 +1,7 @@
 @import 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css';
 
-input[type=text] {
-    width: 130px;
+.serachTextbox {
+    width: 50% ;
     box-sizing: border-box;
     border: 2px solid #ccc;
     border-radius: 4px;
@@ -10,11 +10,24 @@ input[type=text] {
     background-image: url('https://www.w3schools.com/howto/searchicon.png');
     background-position: 10px 10px; 
     background-repeat: no-repeat;
-    padding: 12px 20px 12px 40px;
+    padding: 12px 20px 12px 10px;
     -webkit-transition: width 0.4s ease-in-out;
     transition: width 0.4s ease-in-out;
+    background-position: right;
 }
 
-input[type=text]:focus {
-    width: 100%;
+/* input[type=text]:focus {
+    width: 50%;
+} */
+
+.from_ddl{
+    width:50%;
+    height:40px !important;
+}
+.prodTable tr td{
+border:none;
+vertical-align: baseline;
+}
+h1{
+    text-align: center;
 }

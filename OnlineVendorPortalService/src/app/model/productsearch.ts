@@ -7,3 +7,4 @@ export interface prodyctInfo {
     category: string;
     description: string;
 }
+

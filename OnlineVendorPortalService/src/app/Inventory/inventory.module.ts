@@ -5,13 +5,14 @@ import { RouterModule } from '@angular/router';
 import { InventoryComponent } from './inventory.component';
 import { ShareModule } from '../share/share.module';
 import { AddinventoryComponent } from '../Inventory/addinventory/addinventory.component';
-
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
     CommonModule,
     ShareModule,
-    RouterModule
+    RouterModule,
+    FormsModule  
   ],
   declarations: [InventoryComponent,
     AddinventoryComponent]

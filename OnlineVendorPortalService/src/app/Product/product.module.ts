@@ -6,13 +6,37 @@ import { ShareModule } from '../share/share.module';
 import { ProductsearchComponent } from '../Product/productsearch/productsearch.component';
 import { ProductcreationComponent } from '../Product/productcreation/productcreation.component';
 import { ProductstatusComponent } from '../Product/productstatus/productstatus.component';
-
+import {
+  MatButtonModule,
+  MatMenuModule,
+  MatToolbarModule,
+  MatIconModule,
+  MatCardModule,
+  MatFormFieldModule,
+  MatInputModule,
+  MatRadioModule,
+  MatSelectModule,
+  MatOptionModule,
+  MatSlideToggleModule
+} from '@angular/material';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
     CommonModule,
     RouterModule,
-    ShareModule
+    ShareModule,
+    MatButtonModule,
+    MatMenuModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatCardModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatRadioModule,
+    MatSelectModule,
+    MatOptionModule,
+    MatSlideToggleModule,FormsModule, ReactiveFormsModule,ShareModule
   ],
   declarations: [ProductComponent, ProductsearchComponent,ProductcreationComponent,ProductstatusComponent],
 })

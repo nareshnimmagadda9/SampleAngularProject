@@ -6,10 +6,39 @@
       </div>
       <div class="d-flex justify-content-center">
         <div class="btn btn-mdb-color btn-rounded float-left">
-            <input type="file" class="btn-bs-file btn btn-lg btn-primary" accept="image/*" (change)="onFileChange($event)">
+          <input type="file" class="btn-bs-file btn btn-lg btn-primary" accept="image/*"
+          (change)="onFileChange($event)">
         </div>
       </div>
+
+      <table class="table InventoryTable" >
+        <tr>
+          <td>
+            <label>Inventory ID</label>
+          </td>
+          <td>
+            <input [(ngModel)]="inventoryID" class="form-control">
+          </td>
+        </tr>
+      </table>
+      <table class="table InventoryTable hide" id="InventoryTable" style="text-align: center;">
+          <thead>
+              <tr>
+                  <th>Item ID</th>
+                  <th>ItemName</th>
+                  <th>ItemDescription</th>
+                  <th>ItemQuantity</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr>
+                  <td>{{inventoryInfo.ItemID}}</td>
+                  <td>{{inventoryInfo.ItemName}}</td>
+                  <td>{{inventoryInfo.ItemDescription}}</td>
+                  <td>{{inventoryInfo.ItemQuantity}}</td>
+              </tr>
+          </tbody>
+      </table>
     </div>
   </div>
 </div>
-

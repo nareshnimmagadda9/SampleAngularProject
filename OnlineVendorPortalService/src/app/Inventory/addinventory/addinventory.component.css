@@ -2,3 +2,7 @@
     width: 250px; 
     opacity: .3;
 }
+.InventoryTable tr td{
+    border:none;
+    vertical-align: baseline;
+    }
