@@ -9,13 +9,8 @@
                             <label for="category">Category Description</label>
                         </td>
                         <td>
-                            <select class="form-control from_ddl" name="categorydesc" formControlName="categorydesc" (change)="categoryChange($event)">
-                                <!-- <option selected value="0">Select Category Description</option> -->
-                                <option *ngFor="let pCategory of categoryData" value={{pCategory.Category}}>
-                                    {{ pCategory.CategoryDescription }}
-                                </option>
-                            </select>
-
+                           
+                            <input type="text" name="categoryDesc" formControlName="categoryDesc"  class="form-control from_ddl">
                         </td>
                     </tr>
                     <tr>
@@ -23,7 +18,7 @@
                             <label for="categoryID">Category ID</label>
                         </td>
                         <td>
-                            <input type="text" name="categoryID" formControlName="categoryID"  class="form-control from_ddl categoryID">
+                            <input type="text" name="categoryID" formControlName="categoryID" maxlength="3"  class="form-control from_ddl">
                         </td>
                     </tr>
                     <tr>

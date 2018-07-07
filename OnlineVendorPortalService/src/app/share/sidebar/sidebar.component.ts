@@ -24,7 +24,7 @@ export class SidebarComponent implements OnInit, AfterViewInit {
     this.getUserAccessGroupandSubGroups();
   }
   async getUserAccessGroupandSubGroups() {
-    this.AccessData = await this.vendorService.getAllUSerAccessGroupandSubGroups("1");
+    this.AccessData = await this.vendorService.getAllUSerAccessGroupandSubGroups(localStorage.getItem("LoggedInUserName"));
     var groups = {};
     var htmlULLI = "", childhtmlLI = "";
     for (var i = 0; i < this.AccessData.length; i++) {
