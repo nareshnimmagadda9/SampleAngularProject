@@ -57,7 +57,6 @@ export class VendorService {
       .map((data: Response) => {
         return data.json() as productData[];
       }).toPromise().then(x => {
-        debugger;
         this.productSearchData = x as productData[];
       });
     return this.productSearchData;
