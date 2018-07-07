@@ -1,7 +1,8 @@
 export interface categoryData {
-    userinfo: Array<categoryInfo>;    
+    categoryInfo: Array<categoryInfo>;    
 }
 
 export interface categoryInfo {
     category: string;
+    categoryDescription:string;
 }

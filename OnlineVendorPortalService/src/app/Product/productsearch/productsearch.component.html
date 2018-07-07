@@ -5,30 +5,37 @@
             <form [formGroup]="form" (ngSubmit)="UserSearch()" autocomplete="off">
                 <table class="table prodTable" style="margin: 0 0 0 200px;">
                     <tr>
-                        <td class="col-lg-2 col-md-4 col-sm-6">
+                        <td class="col-lg-3 col-md-4 col-sm-6">
                             <label for="productsearch">Item</label>
                         </td>
                         <td>
                             <input type="text" name="productsearch" formControlName="productsearch" placeholder="Search.." class="serachTextbox">
-
                         </td>
                     </tr>
                     <tr>
-                        <td class="col-lg-2 col-md-4 col-sm-6">
-                            <label for="category">Category</label>
+                        <td class="col-lg-3 col-md-4 col-sm-6">
+                            <label for="category">Category Description</label>
                         </td>
                         <td>
-                            <select class="form-control from_ddl" name="category" formControlName="category">
-                                <option>Select Category</option>
-                                <option *ngFor="let pCategory of productCategoryData">
-                                    {{ pCategory.Category }}
+                            <select class="form-control from_ddl" name="categorydesc" formControlName="categorydesc" (change)="categoryChange($event)">
+                                <!-- <option selected value="0">Select Category Description</option> -->
+                                <option *ngFor="let pCategory of categoryData" value={{pCategory.Category}}>
+                                    {{ pCategory.CategoryDescription }}
                                 </option>
                             </select>
 
                         </td>
                     </tr>
                     <tr>
-                        <td class="col-lg-2 col-md-4 col-sm-6">
+                        <td class="col-lg-3 col-md-4 col-sm-6">
+                            <label for="categoryID">Category ID</label>
+                        </td>
+                        <td>
+                            <input type="text" name="categoryID" formControlName="categoryID"  class="form-control from_ddl categoryID">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-lg-3 col-md-4 col-sm-6">
                             <label for="txtDesc">Description</label>
                         </td>
                         <td>
@@ -37,7 +44,7 @@
                         </td>
                     </tr>
                     <tr>
-                        <td class="col-lg-2 col-md-4 col-sm-6">
+                        <td class="col-lg-3 col-md-4 col-sm-6">
                         </td>
                         <td>
                             <button mat-raised-button class="btn btn-primary" style="margin-left: 120px;" type="submit">Search</button>
@@ -47,14 +54,15 @@
             </form>
         </mat-card-content>
     </mat-card>
-    
+
     <mat-card class="hide" style="margin-top: 20px;" id="tbl_searchData">
-        <mat-card-content>
-            <table class="table prodTable" >
+        <mat-card-content  style="height: 250px; overflow-y: scroll;">
+            <table class="table prodTable">
                 <thead>
                     <tr>
                         <th>Item</th>
                         <th>Category</th>
+                        <th>Category Description</th>
                         <th>Description</th>
                     </tr>
                 </thead>
@@ -62,6 +70,7 @@
                     <tr *ngFor="let pserach of productsearchData">
                         <td>{{pserach.Item}}</td>
                         <td>{{pserach.Category}}</td>
+                        <td>{{pserach.CategoryDescription}}</td>
                         <td>{{pserach.Description}}</td>
                     </tr>
                 </tbody>

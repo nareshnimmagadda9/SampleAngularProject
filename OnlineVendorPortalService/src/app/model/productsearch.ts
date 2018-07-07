@@ -1,10 +1,12 @@
 export interface productData {
-    userinfo: Array<prodyctInfo>;    
+    userinfo: Array<productInfo>;    
 }
 
-export interface prodyctInfo {
+export interface productInfo {
     item: string;
     category: string;
+    CategoryDescription:string;
     description: string;
+
 }
 

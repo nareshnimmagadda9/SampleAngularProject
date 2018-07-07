@@ -5,13 +5,15 @@ import 'rxjs/add/operator/toPromise';
 import { userinfo } from '../model/userinfo';
 import { userAccessArray } from '../model/useraccess';
 import { productData } from '../model/productsearch';
+import { categoryData } from '../model/Category';
 
 
 @Injectable()
 export class VendorService {
   employeeData: userinfo[];
   employeeAccessData: userAccessArray[];
-  productSearchData:productData[];
+  productSearchData: productData[];
+  categoryInfo:categoryData[];
   private URL = 'http://localhost:49897/';
   // private URL = 'http://111.93.23.205:2020/';
   constructor(private http: Http) { }
@@ -43,16 +45,19 @@ export class VendorService {
     return this.employeeAccessData;
   }
 
-  async getProductSearchData(Item: string, Category: string, Description: string) {
+  async getProductSearchData(Item: string, CategoryDesc: string, categoryID: string,Description:string) {
     const subUrl = this.URL + 'api/vendor/RetrieveProductSearchData';
     let params = new URLSearchParams();
     params.set('Item', Item);
-    params.set('Category', Category);
+    params.set('catDesc', CategoryDesc);
+    params.set('Category', categoryID);
     params.set('Description', Description);
+    
     await this.http.get(subUrl, { search: params })
       .map((data: Response) => {
         return data.json() as productData[];
       }).toPromise().then(x => {
+        debugger;
         this.productSearchData = x as productData[];
       });
     return this.productSearchData;
@@ -61,10 +66,10 @@ export class VendorService {
     const subUrl = this.URL + 'api/vendor/RetriveCategoryData';
     await this.http.get(subUrl)
       .map((data: Response) => {
-        return data.json() as productData[];
+        return data.json() as categoryData[];
       }).toPromise().then(x => {
-        this.productSearchData = x as productData[];
+        this.categoryInfo = x as categoryData[];
       });
-    return this.productSearchData;
+    return this.categoryInfo;
   }
 }

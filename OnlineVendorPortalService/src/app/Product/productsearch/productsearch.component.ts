@@ -14,7 +14,8 @@ export class ProductsearchComponent implements OnInit {
   form: FormGroup;
   private formSubmitAttempt: boolean;
   public productsearchData: productData[];
-  public productCategoryData: categoryData[];
+  public categoryData: categoryData[];
+  catDesc: "";
   constructor(
     private vendorService: VendorService,
     private fb: FormBuilder
@@ -25,21 +26,30 @@ export class ProductsearchComponent implements OnInit {
     this.getproductdetails();
     this.form = this.fb.group({
       productsearch: ['', Validators.required],
-      category: ['', Validators.required],
-      txtDesc: ['', Validators.required]
+      categorydesc: ['', Validators.required],
+      txtDesc: ['', Validators.required],
+      categoryID: ['', Validators.required]
     });
   }
 
   async getproductdetails() {
-    this.productCategoryData = await this.vendorService.getAllDistincitCategory();
-    debugger;
+    this.categoryData = await this.vendorService.getAllDistincitCategory();
   }
 
   async UserSearch() {
     this.productsearchData = await this.vendorService.getProductSearchData(
       this.form.value.productsearch,
-      this.form.value.category,
-      this.form.value.txtDesc);
+      this.catDesc,
+      this.form.value.categoryID,
+      this.form.value.txtDesc,
+    );
     $("#tbl_searchData").removeClass('hide');
+  }
+  categoryChange($event) {
+    if ($event.target.value != "0") {
+      this.form.controls['categoryID'].setValue($event.target.value);
+      this.catDesc = $event.target[$event.target.selectedIndex].text;
+    }
+
   }
 }
