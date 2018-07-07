@@ -12,7 +12,13 @@ declare var $: any;
 export class AddinventoryComponent implements OnInit, OnDestroy {
   subscription: Subscription;
   inventoryID: string;
-  inventoryInfo: inventoryInfo[]=[{ItemID:"",ItemDescription:"",ItemName:"",ItemQuantity:""}];
+  inventoryInfo: inventoryInfo[] = [{
+    InventoryID: "",
+    ItemID: "",
+    ItemDescription: "",
+    ItemName: "",
+    ItemQuantity: ""
+  }];
   ngOnDestroy(): void {
     this.subscription.unsubscribe();
   }
