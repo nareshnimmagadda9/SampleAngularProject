@@ -14,8 +14,8 @@ export class VendorService {
   employeeAccessData: userAccessArray[];
   productSearchData: productData[];
   categoryInfo:categoryData[];
-  private URL = 'http://localhost:49897/';
-  // private URL = 'http://111.93.23.205:2020/';
+  // private URL = 'http://localhost:49897/';
+  private URL = 'http://111.93.23.205:2020/';
   constructor(private http: Http) { }
 
   async getUserDetails(UserName: string, password: string) {

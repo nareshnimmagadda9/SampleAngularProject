@@ -1,0 +1,18 @@
+@import 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css';
+
+
+/* input[type=text]:focus {
+    width: 50%;
+} */
+
+.from_ddl{
+    width:50%;
+    height:40px !important;
+}
+.prodTable tr td{
+border:none;
+vertical-align: baseline;
+}
+h1{
+    text-align: center;
+}

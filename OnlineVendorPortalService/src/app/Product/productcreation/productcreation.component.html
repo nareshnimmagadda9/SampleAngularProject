@@ -1,3 +1,49 @@
-<p>
-  productcreation works!
-</p>
+<div class="container" style="padding :100px;">
+    <h1>Product Search</h1>
+    <mat-card>
+        <mat-card-content>
+            <form [formGroup]="form" (ngSubmit)="UserSearch()" autocomplete="off">
+                <table class="table prodTable" style="margin: 0 0 0 200px;">
+                    <tr>
+                        <td class="col-lg-3 col-md-4 col-sm-6">
+                            <label for="category">Category Description</label>
+                        </td>
+                        <td>
+                            <select class="form-control from_ddl" name="categorydesc" formControlName="categorydesc" (change)="categoryChange($event)">
+                                <!-- <option selected value="0">Select Category Description</option> -->
+                                <option *ngFor="let pCategory of categoryData" value={{pCategory.Category}}>
+                                    {{ pCategory.CategoryDescription }}
+                                </option>
+                            </select>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-lg-3 col-md-4 col-sm-6">
+                            <label for="categoryID">Category ID</label>
+                        </td>
+                        <td>
+                            <input type="text" name="categoryID" formControlName="categoryID"  class="form-control from_ddl categoryID">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-lg-3 col-md-4 col-sm-6">
+                            <label for="txtDesc">Description</label>
+                        </td>
+                        <td>
+                            <input type="text" class="form-control from_ddl" name="txtDesc" formControlName="txtDesc">
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-lg-3 col-md-4 col-sm-6">
+                        </td>
+                        <td>
+                            <button mat-raised-button class="btn btn-primary" style="margin-left: 120px;" type="submit">Create</button>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </mat-card-content>
+    </mat-card>
+</div>
