@@ -1,42 +1,26 @@
-<header class="page_header scrolled_not_transparent with_border light stick">
-  <div class="header_inner clearfix">
-    <div class="header_top_bottom_holder">
-      <div class="header_bottom clearfix">
-        <div class="header_inner_left">
-          <div class="logo_wrapper">
-            <div class="q_logo">
-              <a href="http://localhost:4231/" style="height: 50px; visibility: visible;">
-                <img class="normal" src="http://kmvgroup.com/demo2/wp-content/uploads/2016/06/logo3.png" alt="Logo" height="80" width="80">
-              </a>
-            </div>
-          </div>
-        </div>
-        <div class="header_inner_right_title">
-          <div class="logo_wrapper">
-            <div class="q_logo">
-              <h1 class="title">Online Vendor Portal Service</h1>
-            </div>
-          </div>
-        </div>
-        <div class="header_inner_right_logout">
-          <div class="logo_wrapper">
-            <div class="q_logo">
-                <button type="button" class="btn btn-primary btn-md" (click)="redirect('home')" *ngIf="isLoggedIn$">
-                    <span class="glyphicon glyphicon-home"></span> Home
-                  </button>
-              <button type="button" class="btn btn-primary btn-md" style="margin-left: 10px;" (click)="redirect('dashboard')" *ngIf="isLoggedIn$">
-                <span class="glyphicon glyphicon-dashboard"></span> Dashboard
-              </button>
-              <button type="button" class="btn btn-primary btn-md" style="margin-left: 10px;" (click)="onLogout()" *ngIf="isLoggedIn$">
-                <span class="glyphicon glyphicon-log-out"></span> Logout
-              </button>
-              <button type="button" class="btn btn-primary btn-md" (click)="onLogin()" *ngIf="!isLoggedIn$">
-                <span class="glyphicon glyphicon-log-in"></span> Login
-              </button>
-            </div>
-          </div>
+<header>
+    <div>
+      <a href="/" style="height: 50px; visibility: visible;">
+        <img class="normal" src="http://kmvgroup.com/demo2/wp-content/uploads/2016/06/logo3.png" alt="Logo" height="80" width="80">
+      </a>
+      <span class="title">Online Vendor Portal Service</span>
+    </div>
+    <div class="nav_btn">
+      <div class="logo_wrapper">
+        <div class="q_logo">
+          <button type="button" class="btn btn-primary btn-md" (click)="redirect('home')" *ngIf="isLoggedIn$">
+            <span class="glyphicon glyphicon-home"></span> Home
+          </button>
+          <button type="button" class="btn btn-primary btn-md" style="margin-left: 10px;" (click)="redirect('dashboard')" *ngIf="isLoggedIn$">
+            <span class="glyphicon glyphicon-dashboard"></span> Dashboard
+          </button>
+          <button type="button" class="btn btn-primary btn-md" style="margin-left: 10px;" (click)="onLogout()" *ngIf="isLoggedIn$">
+            <span class="glyphicon glyphicon-log-out"></span> Logout
+          </button>
+          <button type="button" class="btn btn-primary btn-md" (click)="onLogin()" *ngIf="!isLoggedIn$">
+            <span class="glyphicon glyphicon-log-in"></span> Login
+          </button>
         </div>
       </div>
     </div>
-  </div>
 </header>

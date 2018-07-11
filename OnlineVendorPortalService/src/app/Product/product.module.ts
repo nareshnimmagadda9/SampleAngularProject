@@ -6,6 +6,8 @@ import { ShareModule } from '../share/share.module';
 import { ProductsearchComponent } from '../Product/productsearch/productsearch.component';
 import { ProductcreationComponent } from '../Product/productcreation/productcreation.component';
 import { ProductstatusComponent } from '../Product/productstatus/productstatus.component';
+import { NgxSpinnerModule } from 'ngx-spinner';
+
 import {
   MatButtonModule,
   MatMenuModule,
@@ -36,7 +38,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MatRadioModule,
     MatSelectModule,
     MatOptionModule,
-    MatSlideToggleModule,FormsModule, ReactiveFormsModule,ShareModule
+    MatSlideToggleModule,FormsModule, ReactiveFormsModule,ShareModule,
+    NgxSpinnerModule
+
   ],
   declarations: [ProductComponent, ProductsearchComponent,ProductcreationComponent,ProductstatusComponent],
 })

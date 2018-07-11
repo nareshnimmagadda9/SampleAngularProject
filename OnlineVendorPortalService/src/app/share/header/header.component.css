@@ -9,8 +9,10 @@ header {
     background-color: #244EA2;
 }
 .title{
-color: white;
-margin-top: 5px;
+	color: #fff;margin-left: 15px;font-size: 25px;vertical-align: text-top;
+}
+.nav_btn{
+	float: right;margin:-50px 10px 0 0;
 }
 header .header_inner_left {
 	position: absolute;
@@ -111,4 +113,13 @@ header.scrolled:not(.scroll_header_top_area) .header_top {
 	color: #fff;
     background-color: #244EA2;
     border-color: #244EA2;
+}
+
+@media screen and (min-width: 100px) and (max-width: 732px) {
+	.title{
+		vertical-align: text-bottom;
+	}
+	.nav_btn{
+		margin:-30px 10px 0 0;
+	}
 }

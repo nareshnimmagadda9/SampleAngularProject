@@ -3,7 +3,6 @@ import { VendorService } from '~/../src/app/auth/vendor.service';
 import { productData } from '~/../src/app/model/productsearch';
 import { categoryData } from '~/../src/app/model/Category';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ToastrService } from 'ngx-toastr';
 declare var $: any;
 
 @Component({
@@ -20,7 +19,6 @@ export class ProductcreationComponent implements OnInit {
   constructor(
     private vendorService: VendorService,
     private fb: FormBuilder,
-    public toastr: ToastrService
   ) { }
 
   ngOnInit() {
@@ -31,6 +29,5 @@ export class ProductcreationComponent implements OnInit {
     });
   }
   ProductCreation() {
-    // this.toastr.
   }
 }

@@ -6,13 +6,16 @@ import { InventoryComponent } from './inventory.component';
 import { ShareModule } from '../share/share.module';
 import { AddinventoryComponent } from '../Inventory/addinventory/addinventory.component';
 import { FormsModule } from '@angular/forms';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 @NgModule({
   imports: [
     CommonModule,
     ShareModule,
     RouterModule,
-    FormsModule  
+    FormsModule,
+    NgxSpinnerModule
+
   ],
   declarations: [InventoryComponent,
     AddinventoryComponent]

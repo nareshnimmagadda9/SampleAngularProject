@@ -1,6 +1,5 @@
 @import "http://kmvgroup.com/wp-content/plugins/js_composer/assets/css/js_composer.min.css?ver=4.11.2.1";
  @import "http://kmvgroup.com/wp-content/themes/stockholm/style.css?ver=4.5.14";
- @import "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css";
  
  
  .carousel-inner img{
@@ -71,7 +70,7 @@
 }
  @media only screen and (min-width:800px) {
      .qode_image_gallery_no_space.highlight_active ul li:not(.active) {
-         opacity: .2;
+         /* opacity: .2; */
          border-top:none !important;
     }
      .qode_image_gallery_no_space.highlight_active ul li:before {

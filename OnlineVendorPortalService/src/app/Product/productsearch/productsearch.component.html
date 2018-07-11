@@ -3,7 +3,7 @@
     <mat-card>
         <mat-card-content>
             <form [formGroup]="form" (ngSubmit)="UserSearch()" autocomplete="off">
-                <table class="table prodTable" style="margin: 0 0 0 200px;">
+                <table class="table prodTable">
                     <tr>
                         <td class="col-lg-3 col-md-4 col-sm-6">
                             <label for="productsearch">Item</label>
@@ -47,7 +47,7 @@
                         <td class="col-lg-3 col-md-4 col-sm-6">
                         </td>
                         <td>
-                            <button mat-raised-button class="btn btn-primary" style="margin-left: 120px;" type="submit">Search</button>
+                            <button mat-raised-button class="btn btn-primary" type="submit">Search</button>
                         </td>
                     </tr>
                 </table>

@@ -24,6 +24,7 @@ export class AuthService {
   }
   logout() {
     localStorage.clear();
-    this.myRoute.navigate([""]);
+    // this.myRoute.navigate([""]);
+    window.location.reload();
   }
 }

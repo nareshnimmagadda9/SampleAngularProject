@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ShareModule } from '../share/share.module';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 
 import {
@@ -37,7 +38,8 @@ import { LoginComponent } from 'src/app/catalog/login/login.component';
     MatRadioModule,
     MatSelectModule,
     MatOptionModule,
-    MatSlideToggleModule,FormsModule, ReactiveFormsModule,ShareModule
+    MatSlideToggleModule,FormsModule, ReactiveFormsModule,ShareModule,
+    NgxSpinnerModule
   ],
   declarations: [
     CatalogComponent,

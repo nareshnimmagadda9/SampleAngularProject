@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ToastrService } from 'ngx-toastr';
+import { NgxSpinnerService } from 'ngx-spinner';
+import swal from 'sweetalert2';
+
 
 @Component({
   selector: 'app-dashboard',
@@ -9,14 +11,20 @@ import { ToastrService } from 'ngx-toastr';
 export class DashboardComponent implements OnInit {
 
   constructor(
-    public toastr: ToastrService
-  ) { 
-     this.toastr.success("Hi, " + localStorage.getItem("LoggedInUserName") + " Welcome to Vendor Portal service", "",
-    { timeOut: 3000, positionClass: 'toast-top-center', });
+    private spinner: NgxSpinnerService
+  ) {
+    if (localStorage.getItem("LoginCount") == "0") {
+      localStorage.setItem("LoginCount", "1");
+      swal("","Hi, " + localStorage.getItem("LoggedInUserName") + " Welcome to Vendor Portal service", "success");
+    }
   }
 
   ngOnInit() {
-    
+    this.spinner.show();
+    setTimeout(() => {
+      /** spinner ends after 5 seconds */
+      this.spinner.hide();
+    }, 2000);
   }
 
 }

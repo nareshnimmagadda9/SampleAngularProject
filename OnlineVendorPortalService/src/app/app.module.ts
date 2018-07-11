@@ -5,7 +5,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule, Route } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
-import { ToastrModule } from 'ngx-toastr';
 // Services
 import { AuthService } from './auth/auth.service';
 import { VendorService } from './auth/vendor.service';
@@ -38,7 +37,6 @@ import { InventoryModule } from '../app/Inventory/inventory.module';
     HttpModule,
     ProductModule,
     InventoryModule,
-    ToastrModule.forRoot()
   ],
   providers: [AuthService, VendorService, QrCodeReader],
   bootstrap: [AppComponent]

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-// import { AuthService } from '~/../src/app/auth/auth.service';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-home',
@@ -7,13 +7,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  // isLoggedIn$: boolean;
-  constructor(
-    // private service:AuthService
+  constructor(private spinner: NgxSpinnerService
   ) { }
 
   ngOnInit() {
-    // this.isLoggedIn$=this.service.isLoggedIn;
+    this.spinner.show();
+    setTimeout(() => {
+      this.spinner.hide();
+  }, 2000);
   }
 
 
