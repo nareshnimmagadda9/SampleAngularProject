@@ -20,7 +20,9 @@ export class AddinventoryComponent implements OnInit, OnDestroy {
     ItemQuantity: ""
   }];
   ngOnDestroy(): void {
-    this.subscription.unsubscribe();
+    if (this.subscription != undefined) {
+      this.subscription.unsubscribe();
+    }
   }
   onFileChange(event) {
     $("#InventoryTable").addClass("hide");
