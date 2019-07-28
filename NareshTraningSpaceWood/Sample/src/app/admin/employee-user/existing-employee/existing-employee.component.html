@@ -1,0 +1,72 @@
+<div class="container-fluid content-area">
+    <section class="section">
+
+        <div class="row page-titles m-b-0">
+            <div class="col-md-5 align-self-center">
+                <h3 class="text-themecolor">employees List</h3>
+            </div>
+            <div class="col-md-7 align-self-center">
+                <ol class="breadcrumb float-right">
+                    <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
+                    <li class="breadcrumb-item active">employees List</li>
+                </ol>
+            </div>
+        </div>
+
+
+        <div class="card card-body">
+
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/admin/employee-user/new-employee"> New Employees </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active show"> Existing Employees </a>
+                </li>
+
+            </ul>
+
+
+            <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade active show" id="profile" role="tabpanel" aria-labelledby="profile-tab" *ngIf="existingemployees?.length!=0">
+                    <div id="table" class="table-editable table-responsive" style="margin-top:30px;">
+                        <br>
+                        <table datatable class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+
+                                    <th> Employee Id </th>
+                                    <th> Employee Name </th>
+                                    <th> Email Id </th>
+                                    <th> Status </th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let exemp of existingemployees">
+                                    <td>{{exemp.EmployeeID}} </td>
+                                    <td> {{exemp.EmployeeName}} </td>
+                                    <td> {{exemp.Emailid}} </td>
+                                    <td *ngIf="exemp.Status">
+                                        <span style="background-color:#00770f; padding:5px; color:#fff;">Active</span>
+                                    </td>
+                                    <td *ngIf="!exemp.Status">
+                                        <span style="background-color:red; padding:5px; color:#fff;">Disabled</span>
+                                    </td>
+                                    <td class=" pt-3-half td-actions"> <span class="table-remove"> <a
+                                                routerLink="/admin/employee-user/update-employee/{{exemp.EmployeeID}}">
+                                                <i class="fa fa-pencil-square"></i> </a></span> </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </section>
+    <br>
+</div>
+
+<div class="loading" *ngIf="loading"></div>

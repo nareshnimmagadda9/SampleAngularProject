@@ -1,0 +1,74 @@
+<div class="container-fluid content-area">
+    <section class="section">
+
+        <div class="row page-titles m-b-0">
+            <div class="col-md-5 align-self-center">
+                <h3 class="text-themecolor">Business Partners</h3>
+            </div>
+            <div class="col-md-7 align-self-center">
+                <ol class="breadcrumb float-right">
+                    <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
+                    <li class="breadcrumb-item active">Business Partners</li>
+                </ol>
+            </div>
+        </div>
+
+
+        <div class="card card-body">
+
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active show"> New Business Partners </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/admin/businesspartner-user/existing-businesspartner"> Existing Business Partners </a>
+                </li>
+
+            </ul>
+            <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade active show" id="home" role="tabpanel" aria-labelledby="home-tab">
+
+                    <div id="table" class="table-editable table-responsive" *ngIf="newBP?.length!=0" style="margin-top:30px;">
+                        <br>
+                        <table datatable class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th> </th>
+                                    <th> Partner Id </th>
+                                    <th> Partner Name </th>
+                                    <th> City </th>
+                                    <th> State </th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let bp of newBP">
+                                    <td><input type="checkbox" (change)="selectionChange($event.srcElement, bp)"></td>
+                                    <td> {{bp.t_bpid}} </td>
+                                    <td> {{bp.t_desc}} </td>
+                                    <td> {{bp.t_ccit}} </td>
+                                    <td> {{bp.t_dsca}} </td>
+                                    <td> <span class="badge-dot badge-brand mr-1"></span>New
+                                    </td>
+
+                                </tr>
+
+                            </tbody>
+                        </table>
+
+                        <div class="text-right">
+                            <div class="ml-auto mb-1 mt-3 d-lg-flex d-none">
+                                <button type="button" class="btn-3 btn-3a fa-arrow-right default grey" (click)="generatePassword()"> Generate
+                            Password </button> </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </section>
+    <br>
+</div>
+
+<div class="loading" *ngIf="loading"></div>

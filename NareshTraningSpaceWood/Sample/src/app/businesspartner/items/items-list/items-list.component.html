@@ -1,0 +1,118 @@
+<div class="container-fluid content-area">
+    <section class="section">
+
+        <div class="row page-titles m-b-0">
+            <div class="col-md-5 align-self-center">
+                <h3 class="text-themecolor">Items list</h3>
+            </div>
+            <div class="col-md-7 align-self-center">
+                <ol class="breadcrumb float-right">
+                    <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
+                    <li class="breadcrumb-item active">items list</li>
+                </ol>
+            </div>
+        </div>
+
+
+        <div class="card">
+            <div class="card-header">
+                <span class="ml-auto d-lg-flex d-none"> 
+                    <button  type="button"  (click)="placeOrder()" class="btn-3 btn-3a fa-plus default green"> Place Order
+                        <span class="cart_total" *ngIf="cartitems?.length">{{cartitems.length}}</span>
+                </button>
+                </span>
+            </div>
+            <div class="card-body">
+                <div id="table" class="table-editable table-responsive" *ngIf="allItems?.length">
+                    <table datatable id="example" class="table table-striped table-bordered border-t0 w-100 text-nowrap">
+                        <thead>
+                            <!-- <tr>
+                                <th class="hasinput">
+                                    <input type="text" class="form-control" placeholder="Item Id" />
+                                </th>
+                                <th class="hasinput">
+                                    <input type="text" class="form-control" placeholder="Item  Name" />
+                                </th>
+                                <th class="hasinput">
+                                    <input type="text" class="form-control" placeholder="Item Group" />
+                                </th>
+                                <th class="hasinput">
+                                    <input type="text" class="form-control" placeholder="Item Description" />
+                                </th>
+
+                                <th class="hasinput">
+                                    <input type="text" class="form-control" placeholder="Item Price" />
+                                </th>
+
+                                <th class="hasinput">&nbsp;
+
+                                </th>
+
+                            </tr> -->
+
+                            <tr>
+                                <th class="wd-15p"> Item ID</th>
+                                <th class="wd-20p"> Item Group </th>
+                                <th class="wd-15p"> Item Description </th>
+                                <th class="wd-10p"> Item Price </th>
+                                <th class="wd-10p"> Item Quantity </th>
+                                <th class="wd-15p">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let item of allItems;  let i = index">
+                                <td> <span class="text-primary">{{item.t_item}}</span> </td>
+                                <td>{{item.t_citg}}</td>
+                                <td>{{item.t_dsca}}</td>
+                                <td><input (change)="priceChange(item, $event.target.value)" (keyup)="priceChange(item, $event.target.value)" type="number" class="item_price" value="{{item.t_pric}}" min="0"></td>
+                                <td><input (change)="quantityChange(item, $event.target.value)" (keyup)="quantityChange(item, $event.target.value)" class="item_quanty" type="number" value="{{item.t_oqty}}" min="1"></td>
+                                <td class="td-actions">
+                                    <a class="add_to_cart_btn" (click)="addtoCart(item)" *ngIf="item.status == 0">Add to Cart</a>
+                                    <a class="remove_to_cart_btn" (click)="removeFromCart(item)" *ngIf="item.status == 1">Remove</a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <!-- <table datatable [dtOptions]="dtOptions" class="row-border hover customdatatables">
+                        <thead>
+
+                            <tr>
+                                <th>Item</th>
+                                <th>Description</th>
+                                <th>Group</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody *ngIf="itemsList?.length != 0">
+                            <tr *ngFor="let item of itemsList">
+                                <td>{{ item.t_item }}</td>
+                                <td>{{ item.t_desc }}</td>
+                                <td>{{ item.t_citg }}</td>
+                                <td>
+                                    <a class="add_to_cart_btn" (click)="addtoCart(item)" *ngIf="item.status == 0">Add to Cart</a>
+                                    <a class="remove_to_cart_btn" (click)="removeFromCart(item)" *ngIf="item.status == 1">Remove</a>
+                                </td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <th><input type="text" placeholder="Search ID" name="t_item" /></th>
+                                <th><input type="text" placeholder="Search first name" name="t_desc" /></th>
+                                <th><input type="text" placeholder="Search last name" name="t_citg" /></th>
+                                <td> </td>
+                            </tr>
+                        </tfoot>
+
+
+
+                    </table> -->
+                </div>
+            </div>
+        </div>
+
+    </section>
+</div>
+<br>
+
+<div class="loading" *ngIf="loading"></div>

@@ -1,0 +1,147 @@
+<div class="container content-area">
+    <section class="section">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a routerLink="/business-partner/items/item-list" class="text-muted">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page"> Order Details </li>
+
+        </ol>
+
+        <div class="card mb-2 clearfix">
+            <div class="card-header">
+                <div class="float-left">
+                    <span class="orderid">#CV45632 </span>
+                </div>
+                <div class="float-right">
+                    <!-- <a class="btn-3 btn-3a fa-check default green">  Update Order  </a>  -->
+                    <a class="btn-3 btn-3a fa-times default grey" data-toggle="modal" data-target="#myModal">  Cancel Order  </a>
+                </div>
+            </div>
+            <div class="card-content">
+                <div class="card-body pb-5 pt-5">
+
+                    <!-- <div class="row ">
+        <div class="col-lg-6 ">
+          <p class="h3">Client Inc</p>
+          <address>
+            Street Address<br>
+            State, City<br>
+            Region, Postal Code<br>
+            ltd@example.com
+          </address>
+        </div>
+        <div class="col-lg-6 text-right">
+          <p class="h3">Invoice To</p>
+          <address>
+            Street Address<br>
+            State, City<br>
+            Region, Postal Code<br>
+            ctr@example.com
+          </address>
+        </div>
+      </div> -->
+
+                    <div class=" text-dark">
+                        <!-- <p class="mb-1 mt-3"><span class="font-weight-semibold">Invoice Date :</span> 12rd July 2018</p>
+        <p><span class="font-weight-semibold">Due Date :</span> 15th July 2019</p> -->
+                    </div>
+                    <div id="table" class="table-editable table-responsive">
+                        <table class="table border table-bordered text-nowrap">
+                            <thead>
+                                <tr>
+                                    <th class="border-0 text-uppercase  font-weight-bold">ID</th>
+                                    <th class="border-0 text-uppercase  font-weight-bold">Item</th>
+                                    <th class="border-0 text-uppercase font-weight-bold">Description</th>
+                                    <th class="border-0 text-uppercase  font-weight-bold">Quantity</th>
+                                    <th class="border-0 text-uppercase  font-weight-bold">Unit Cost</th>
+                                    <th class="border-0 text-uppercase  font-weight-bold">Total</th>
+                                    <th class="border-0 text-uppercase  font-weight-bold"> Actions </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td> 01 </td>
+                                    <td> Item Name </td>
+                                    <td> Item Description </td>
+                                    <td class="pt-3-half" contenteditable="true">21</td>
+                                    <td>$321</td>
+                                    <td>$3452</td>
+                                    <td class=" pt-3-half td-actions"> <span class="table-remove">  <a href="#">  <i class="la la-close delete"></i>  </a></span> </td>
+                                </tr>
+                                <tr>
+                                    <td> 02 </td>
+                                    <td> Item Name </td>
+                                    <td> Item Description </td>
+                                    <td class="pt-3-half" contenteditable="true">21</td>
+                                    <td>$321</td>
+                                    <td>$3452</td>
+                                    <td class=" pt-3-half td-actions"> <span class="table-remove">  <a href="#">  <i class="la la-close delete"></i>  </a></span> </td>
+                                </tr>
+                                <tr>
+                                    <td> 03 </td>
+                                    <td> Item Name </td>
+                                    <td> Item Description </td>
+                                    <td class="pt-3-half" contenteditable="true">21</td>
+                                    <td>$321</td>
+                                    <td>$3452</td>
+                                    <td class=" pt-3-half td-actions"> <span class="table-remove">  <a href="#">  <i class="la la-close delete"></i>  </a></span> </td>
+                                </tr>
+                                <tr>
+                                    <td> 04 </td>
+                                    <td> Item Name </td>
+                                    <td> Item Description </td>
+                                    <td class="pt-3-half" contenteditable="true">21</td>
+                                    <td>$321</td>
+                                    <td>$3452</td>
+                                    <td class=" pt-3-half td-actions"> <span class="table-remove">  <a href="#">  <i class="la la-close delete"></i>  </a></span> </td>
+                                </tr>
+
+
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+            <div class="card-footer border-top-blue-grey border-top-lighten-5 text-muted">
+                <span class="float-left">
+  <span class="text-muted">Ordered On</span>
+                <strong>Wed, Oct 3rd 2018</strong>
+                </span>
+                <span class="float-right">
+  <span class="text-muted">Ordered Amount</span>
+                <strong>$250</strong>
+                </span>
+            </div>
+        </div>
+
+    </section>
+</div>
+
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Confirm Cancel Order</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-column">
+                        <div class="form-group">
+                            <label for="">Comments<span style="color:red">*</span></label>
+                            <input type="text" name="" id="" class="form-control">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" id="cancelOrder" data-dismiss="modal" id="cancelOrder"> Cancel Order</button>
+            </div>
+        </div>
+
+    </div>
+</div>

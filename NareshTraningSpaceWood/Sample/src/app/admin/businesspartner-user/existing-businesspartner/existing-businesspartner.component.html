@@ -1,0 +1,77 @@
+<div class="container-fluid content-area">
+    <section class="section">
+
+        <div class="row page-titles m-b-0">
+            <div class="col-md-5 align-self-center">
+                <h3 class="text-themecolor">Business Partners</h3>
+            </div>
+            <div class="col-md-7 align-self-center">
+                <ol class="breadcrumb float-right">
+                    <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
+                    <li class="breadcrumb-item active">Business Partners</li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="card card-body">
+
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/admin/businesspartner-user/new-businesspartner"> New Business Partners </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active show"> Existing Business Partners </a>
+                </li>
+
+            </ul>
+
+
+            <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade active show" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                    <div id="table" class="table table-bordered table-striped dataTable no-footer" *ngIf="existingBP?.length != 0" style="margin-top:30px;">
+                        <br>
+                        <table datatable class="table table-hover m-b-0 c_list">
+                            <thead>
+                                <tr>
+                                    <th> Partner Id </th>
+                                    <th> Partner Name </th>
+                                    <th> Email Id </th>
+                                    <th> Phone No </th>
+                                    <th> Status </th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let BP of existingBP">
+                                    <td>{{BP.BPID}} </td>
+                                    <td>{{BP.t_desc}} </td>
+                                    <td>{{BP.Emailid}} </td>
+                                    <td>{{BP.PhoneNo}} </td>
+                                    <td> <span class=" " style="background-color:#00770f; padding:5px; color:#fff;">Active</span></td>
+                                    <td class=" pt-3-half td-actions"> <span class="table-remove"> <a
+                                                routerLink="/admin/businesspartner-user/update-businesspartner/{{BP.BPID}}">
+                                                <i class="fa fa-pencil-square"></i> </a></span> </td>
+                                </tr>
+
+                                <!-- <tr>
+                                      <td colspan="5">
+                                          <div class="ml-auto mb-1 mt-3 d-lg-flex d-none"> <button type="button"
+                                                  class="btn-3 btn-3a fa-arrow-right default blue"> Update Users
+                                              </button> </div>
+                                      </td>
+                                  </tr> -->
+
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </section>
+    <br>
+</div>
+
+<div class="loading" *ngIf="loading"></div>

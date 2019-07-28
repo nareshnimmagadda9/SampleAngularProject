@@ -1,0 +1,174 @@
+<div class="container-fluid content-area">
+    <section class="section">
+
+
+        <div class="row page-titles m-b-0">
+            <div class="col-md-5 align-self-center">
+                <h3 class="text-themecolor">Employee Details</h3>
+            </div>
+            <div class="col-md-7 align-self-center">
+                <ol class="breadcrumb float-right">
+                    <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
+                    <li class="breadcrumb-item active">Employee Details</li>
+                </ol>
+            </div>
+        </div>
+
+
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">Employee Details</h3>
+            </div>
+            <div class="card-body">
+
+                <tabset>
+                    <tab heading="User Profile" id="tab1">
+                        <div class="tab-pane fade active show">
+                            <br>
+                            <form class="" [formGroup]="employeeform" (ngSubmit)="checkemp()">
+                                <div class="form-row">
+                                    <div class="col-md-6">
+                                        <div class="position-relative form-group">
+                                            <label class="">First Name </label>
+                                            <div><b>{{this.employeeform.controls.FirstName.value}}</b></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="position-relative form-group"><label class=""> Last Name</label>
+                                            <div><b>{{this.employeeform.controls.LastName.value}}</b></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="col-md-6">
+                                        <div class="position-relative form-group">
+                                            <label class="">Email</label>
+                                            <div><b>{{this.employeeform.controls.Emailid.value}}</b></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="position-relative form-group"><label class="">Password</label>
+                                            <div><b>{{this.employeeform.controls.Password.value}}</b></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="col-md-6">
+                                        <div class="position-relative form-group">
+                                            <label class="">New Password</label>
+                                            <input name="password" placeholder="Enter new password" type="password"
+                                                class="form-control" formControlName="newPassword" (keyup)="pwdvalid($event)">
+                                                <label for="" class="text-danger"
+                                                *ngIf="submitted && employeeform.controls.newPassword.hasError('required')">
+                                                Please Enter New Password</label>
+                                                <label for="" class="text-danger"
+                                                *ngIf="employeeform.controls.newPassword.hasError('maxlength')">
+                                                Maximum Password Length is 30</label>
+                                                <div class="error" *ngIf="newspace">Your password can't start or end with a blank space</div>
+                                               
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="position-relative form-group">
+                                            <label class="">Confirm Password</label>
+                                            <input name="password" placeholder="Enter confirm password" type="password"
+                                                class="form-control" formControlName="confirmPassword" (keyup)="pwdvalid($event)">
+                                                <label for="" class="text-danger"
+                                                *ngIf="submitted && employeeform.controls.confirmPassword.hasError('required')">
+                                                Please Enter Confirm Password</label>
+                                                <label for="" class="text-danger"
+                                                *ngIf="employeeform.controls.confirmPassword.hasError('maxlength')">
+                                                Maximum Password Length is 30</label>
+                                            <div class="error" *ngIf="passwordmatch">Those Passwords didn't match</div>
+                                            <div class="error" *ngIf="confirmspace">Your password can't start or end with a blank space</div>
+                                           
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-row">
+                                    <button *ngIf="empStatus == false" type="button"
+                                        class="btn-3 btn-3a fa-arrow-right default blue"
+                                        (click)="updateEmployeeStatus(1)"> Enable Employee </button>
+                                    <button *ngIf="empStatus == true" type="submit"
+                                        class="btn-3 btn-3a fa-arrow-right default blue">
+                                        Update Settings </button>
+                                    <!-- <button *ngIf="empStatus == true" style="margin-left:5px;" type="button"
+                                        class="btn-3 btn-3a fa-times default grey" (click)="updateEmployeeStatus(0)">
+                                        Disable User </button> -->
+                                </div>
+
+
+                            </form>
+
+                        </div>
+                    </tab>
+                    <tab heading="Assigned Business Partners ">
+                        <div class="tab-pane fade active show">
+                            <br>
+                            <h4>Assign Business Partner</h4>
+                            <form class="" [formGroup]="bpform" >
+                                <div class="row">
+                                    <div class="col-md-10">
+                                        <div class="position-relative form-group">
+                                            <select name="" id="" class="form-control"
+                                                (change)="selectedBP($event.target.value)" formControlName="BPID">
+                                                <option value="" selected>Select Business Partner</option>
+                                                <option value="{{bp.BPID}}" *ngFor="let bp of assignableBP">{{bp.BPID}}
+                                                </option>
+                                            </select>
+                                            <label for="" class="text-danger"
+                                                *ngIf="bpsubmitted && bpform.controls.BPID.hasError('required')">Please
+                                                Select Business Partner ID</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <a (click)="checkbp()" class="btn-3 btn-3a fa-arrow-right default blue"> Assign </a>
+                                    </div>
+                                </div>
+                            </form>
+                            <div id="table" class="table-editable table-responsive">
+                                <br>
+                                <table datatable class="table table-bordered table-striped">,
+                                    <thead class="thead-dark">
+                                        <tr>
+
+                                            <th> User Id </th>
+                                            <th> User Name </th>
+                                            <th> Email </th>
+                                            <th> Phone No </th>
+                                            <th> Status </th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody *ngIf="assignedBP?.length!=0">
+                                        <tr *ngFor="let bp of assignedBP">
+                                            <td> {{bp.BPID}} </td>
+                                            <td> {{bp.t_desc}}</td>
+                                            <td> {{bp.Emailid}}</td>
+                                            <td>{{bp.PhoneNo}}</td>
+                                            <td> <span class="badge-dot badge-success mr-1"></span>Active
+                                            </td>
+                                            <td class=" pt-3-half td-actions"> <span class="table-remove"> <a
+                                                        (click)="deletebleBP(bp.BPID)">
+                                                        <i class="fa fa-trash text-danger "></i> </a></span> </td>
+                                        </tr>
+
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </tab>
+                </tabset>
+
+
+
+
+            </div>
+        </div>
+
+    </section>
+</div>
+
+<div class="loading" *ngIf="loading"></div>

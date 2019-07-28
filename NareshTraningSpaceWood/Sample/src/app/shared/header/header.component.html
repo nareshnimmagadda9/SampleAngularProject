@@ -1,0 +1,58 @@
+<header class="clearfix">
+    <nav class="navbar navbar-expand-lg main-navbar" id="headerMenuCollapse">
+        <div class="container-fluid">
+
+            <a class="header-brand" href="javascript:void();">
+                <img src="{{siteUrl}}/assets/images/spacel.png" class="header-brand-img" alt="" />
+            </a>
+
+            <div class="btn-group header_drodown" dropdown>
+                <button id="button-basic" dropdownToggle type="button" class="nav-link nav-link-lg" aria-controls="dropdown-basic">
+                    <i class="fa fa-user-circle-o"></i>  {{username}} <i class="fa fa-angle-down"></i>
+                </button>
+                <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="button-basic">
+                    <!-- <li role="menuitem"><a>Settings</a></li> -->
+                    <li *ngIf="Balance" role="menuitem"><a routerLink="/business-partner/balance">Balance</a></li>
+                    <li role="menuitem"><a (click)="logout()">Logout</a></li>
+                    
+                </ul>
+            </div>
+
+
+
+        </div>
+    </nav>
+
+</header>
+<div class="horizontal-main clearfix">
+    <div class="horizontal-mainwrapper container-fluid clearfix">
+        <nav class="horizontalMenu clearfix">
+            <ul class="horizontalMenu-list">
+
+                <li *ngIf="EmployeesList" class="has-submenu" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+                    <a routerLink="/{{role}}/employee-user/new-employee"><i class="fa fa-user"></i>Employees List </a>
+                </li>
+                <li *ngIf="BusinessPartnerList" class="has-submenu" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+                    <a routerLink="/{{role}}/businesspartner-user/new-businesspartner"><i class="fa fa-handshake-o"></i>Business Partners List </a>
+                </li>
+                <li *ngIf="ItemsList" class="has-submenu" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+                    <a routerLink="/{{role}}/items/item-list"><i class="fa fa-list"></i>Items List </a>
+                </li>
+
+                <li *ngIf="OrdersList" class="has-submenu" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+                    <a *ngIf="role=='employee'" routerLink="/{{role}}/orders-list"><i class="fa fa-desktop"></i>Orders List </a>
+                    <a *ngIf="role=='business-partner'" routerLink="/{{role}}/orders/bp-orders-list"><i class="fa fa-desktop"></i>Orders List </a>
+                </li>
+                <li *ngIf="SavedOrders" class="has-submenu" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+                    <a routerLink="/{{role}}/orders/bp-orders-saved"><i class="fa fa-desktop"></i>Saved Orders </a>
+                </li>
+                <li *ngIf="BulkUpload" class="has-submenu" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+                    <a routerLink="/{{role}}/bulkupload"><i class="fa fa-desktop"></i>Bulk Upload </a>
+                </li>
+                <!-- <li ><a href="partners-list.html"><i class="fa fa-handshake-o"></i> Partners List </a></li> -->
+
+            </ul>
+        </nav>
+        <!--Menu HTML Code-->
+    </div>
+</div>

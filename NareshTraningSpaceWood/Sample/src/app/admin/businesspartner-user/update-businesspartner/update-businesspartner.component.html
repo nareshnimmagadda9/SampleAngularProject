@@ -1,0 +1,122 @@
+<div class="container-fluid content-area">
+    <section class="section">
+
+        <div class="row page-titles m-b-0">
+            <div class="col-md-5 align-self-center">
+                <h3 class="text-themecolor">Business Partner Details</h3>
+            </div>
+            <div class="col-md-7 align-self-center">
+                <ol class="breadcrumb float-right">
+                    <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
+                    <li class="breadcrumb-item active">Business Partner Details</li>
+                </ol>
+            </div>
+        </div>
+
+
+
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">Business Partner Details</h3>
+            </div>
+            <div class="card-body">
+                <form class="" [formGroup]="bpform" (ngSubmit)="chechValid()">
+                    <div class="form-row">
+                        <div class="col-md-6">
+                            <div class="position-relative form-group">
+                                <label class="">First Name </label>
+                                <div><b>{{ this.bpform.controls.FirstName.value}}</b></div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="position-relative form-group">
+                                <label class=""> Last Name</label>
+                                <div><b>{{ this.bpform.controls.LastName.value}}</b></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col-md-6">
+                            <div class="position-relative form-group">
+                                <label class="">Email</label>
+                                <div><b>{{ this.bpform.controls.Emailid.value}}</b></div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="position-relative form-group">
+                                <label class="">Password</label>
+                                <div><b>{{ this.bpform.controls.Password.value}}</b></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col-md-6">
+                            <div class="position-relative form-group">
+                                <label class="">New Password</label>
+                                <input name="password" placeholder="New password" type="password" class="form-control"
+                                    formControlName="NewPassword" (keyup)="pwdvalid($event)">
+                                <label for="" class="text-danger"
+                                    *ngIf="submitted && bpform.controls.NewPassword.hasError('required')">
+                                    Please Enter New Password</label>
+                                <label for="" class="text-danger"
+                                    *ngIf="bpform.controls.NewPassword.hasError('maxlength')">
+                                    Maximum Password Length is 30</label>
+                                    <div class="error" *ngIf="newspace">Your password can't start or end with a blank space</div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="position-relative form-group">
+                                <label class="">Confirm Password</label>
+                                <input name="password" placeholder="Confirm password" type="password"
+                                    class="form-control" formControlName="ConfirmPassword" (keyup)="pwdvalid($event)">
+                                <label for="" class="text-danger"
+                                    *ngIf="submitted && bpform.controls.ConfirmPassword.hasError('required')">
+                                    Please Enter Confirm Password</label>
+                                <label for="" class="text-danger"
+                                    *ngIf="bpform.controls.ConfirmPassword.hasError('maxlength')">
+                                    Maximum Password Length is 30</label>
+                                <div class="error" *ngIf="passwordmatch">Those Passwords didn't match</div>
+                                <div class="error" *ngIf="confirmspace">Your password can't start or end with a blank space</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="position-relative form-group">
+                        <label for="exampleAddress" class="">Address</label>
+                        <div><b>{{ this.bpform.controls.Address.value}}</b></div>
+                    </div>
+                    <div class="position-relative form-group">
+                        <label for="exampleAddress2" class="">Address 1</label>
+                        <div><b>{{ this.bpform.controls.Address2.value}}</b></div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col-md-4">
+                            <div class="position-relative form-group">
+                                <label for="exampleCity" class="">City</label>
+                                <div><b>{{ this.bpform.controls.City.value}}</b></div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="position-relative form-group">
+                                <label for="exampleState" class="">State</label>
+                                <div><b>{{ this.bpform.controls.State.value}}</b></div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="position-relative form-group">
+                                <label for="exampleZip" class="">Zip</label>
+                                <div><b>{{ this.bpform.controls.Zip.value}}</b></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row"> <button type="submit" class="btn-3 btn-3a fa-arrow-right default blue">
+                            Update Settings </button>
+                        <!-- <button style="margin-left:5px;" type="button" class="btn-3 btn-3a fa-times default grey"> Disable User
+                       </button> -->
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+</div>
+
+<div class="loading" *ngIf="loading"></div>

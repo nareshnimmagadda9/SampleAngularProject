@@ -1,0 +1,66 @@
+<div class="container content-area">
+    <section class="section">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a routerLink="/business-partner/items/item-list" class="text-muted">Home</a>
+            </li>
+            <li class="breadcrumb-item active" aria-current="page"> Order Cancelled </li>
+
+        </ol>
+
+        <div class="card mb-2 clearfix">
+            <!-- <div class="card-header">
+<div class="float-left">
+  <span class="orderid">#CV45632 </span>
+</div>
+<div class="float-right">						 
+  <a href="order-placed.html" class="btn-3 btn-3a fa-check default green">  Place Order  </a> 
+  <a class="btn-3 btn-3a fa-times default grey">  Cancel Order  </a> 
+</div>
+</div> -->
+            <div class="card-content">
+                <div class="card-body pb-5 pt-5">
+
+                    <div class="col-md-12">
+                        <h2 class="text-center ">Order Cancelled Successfully !!!</h2>
+                        <br>
+                    </div>
+
+                    <div id="table" class="table-editable table-responsive" *ngIf="orderDetails">
+                        <table class="table border table-bordered text-nowrap" *ngIf="tblswOrderItems?.length!=0">
+                            <thead>
+                                <tr>
+                                    <th class="border-0 text-uppercase  font-weight-bold">Item</th>
+                                    <th class="border-0 text-uppercase font-weight-bold">Description</th>
+                                    <th class="border-0 text-uppercase  font-weight-bold">Quantity</th>
+                                    <th class="border-0 text-uppercase  font-weight-bold">Unit Cost</th>
+                                    <th class="border-0 text-uppercase  font-weight-bold">Total</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let order of orderDetails.tblswOrderItems">
+                                    <td> {{order.t_item}} </td>
+                                    <td> {{order.t_dsca}} </td>
+                                    <td>{{order.t_oqty}}</td>
+                                    <td>{{order.t_pric}}</td>
+                                    <td>{{order.total}}</td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer border-top-blue-grey border-top-lighten-5 text-muted">
+                <span class="float-left">
+                    <span class="text-muted">Ordered On:</span>
+                    <strong *ngIf="orderDetails"> {{orderDetails.t_time | date :'short'}}</strong>
+                </span>
+                <span class="float-right">
+                    <span class="text-muted">Ordered Amount: </span>
+                    <strong> Rs.{{orderTotal}}</strong>
+                </span>
+            </div>
+        </div>
+
+    </section>
+</div>

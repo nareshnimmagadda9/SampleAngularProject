@@ -1,0 +1,66 @@
+/* You can add global styles to this file, and also import other style files */
+
+.card {
+    -webkit-box-shadow: 0 3px 9px rgba(0.2, 0, 0, 0.3)!important;
+    border: 1px solid rgba(0, 0, 0, .125)!important;
+    border-radius: 5px 5px 0px 0px !important;
+    border-top: solid 2px #fdba2d !important;
+}
+
+.text-center {
+    text-align: center!important;
+    font-family: 'Poppins', sans-serif!important;
+    text-transform: uppercase!important;
+}
+
+.align-self-center {
+    align-self: center!important;
+    font-family: 'Poppins', sans-serif!important;
+    text-transform: uppercase;
+    padding-top: 8px!important;
+    padding-left: 18px!important;
+}
+
+.breadcrumb {
+    font-family: 'Poppins', sans-serif!important;
+    font-weight: bold!important;
+}
+
+.dataTables_wrapper .dataTables_length,
+.dataTables_wrapper .dataTables_filter,
+.dataTables_wrapper .dataTables_info,
+.dataTables_wrapper .dataTables_processing,
+.dataTables_wrapper .dataTables_paginate {
+    margin-bottom: 20px!important;
+}
+
+table.dataTable tbody th,
+table.dataTable tbody td {
+    padding: 8px 10px!important;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button.current,
+.dataTables_wrapper .dataTables_paginate .paginate_button.current:hover {
+    color: #333333 !important;
+    border: 1px solid #fdba2d!important;
+    background: #fdba2d!important;
+}
+
+div.dataTables_wrapper div.dataTables_filter label {
+    text-transform: uppercase!important;
+    font-weight: bold!important;
+}
+
+div.dataTables_wrapper div.dataTables_filter input {
+    margin-left: 0.5em;
+    display: inline-block;
+    width: auto;
+    /* color: red; */
+    border: solid 2px #fdba2d!important;
+    border-radius: 5px!important;
+    height: 20px!important;
+}
+
+.panel {
+    padding: 15px;
+}
